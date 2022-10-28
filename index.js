@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require("cors");
 
-// your code
+app.use(cors({ credentials: true, origin: "*" }));
 
 app.get("/", (req, res) => {
     res.status(200).json({
