@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node build/index.js",
+    "prestart": "npm run build",
+    "start": "node build/index.js",
     "build": "npx tsc",
     "dev": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

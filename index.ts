@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 
 const app: Application = express();
-const port: number | string = process.env.PORT || 3000;
+const port: number | string = process.env.PORT || 8000;
 
 import { postService } from "./services";
 
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
     res.status(200).json({
-        slackUsername: "codeHashira",
+        slackUsername: "codeHashiral",
         backend: true,
         age: 32,
         bio: "Hello! I am a Backend Developer",

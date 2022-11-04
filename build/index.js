@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 const services_1 = require("./services");
 app.use((0, cors_1.default)({ credentials: true, origin: "*" }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
     res.status(200).json({
-        slackUsername: "codeHashira",
+        slackUsername: "codeHashiral",
         backend: true,
         age: 32,
         bio: "Hello! I am a Backend Developer",
