@@ -1,10 +1,11 @@
 const postService = (req, res) => {
-    const operation_type = req.body.operation_type;
+    const operation_type = req.body.operation_type || req.query.operation_type;
 
     const checkSubStr = (string, substing) => {
         return string.indexOf(substing) !== -1 ? true : false;
     };
 
+    if (!operation_type) return res.status(400).json("Missing operation_type");
     const operation =
         checkSubStr(operation_type, "add") ||
         checkSubStr(operation_type, "addition")
@@ -35,8 +36,20 @@ const postService = (req, res) => {
     const tempX = numbArr.length ? parseInt(numbArr[0]) : null;
     const tempY = numbArr.length ? parseInt(numbArr[1]) : null;
 
-    const x = req.body.x ? req.body.x : tempX ? tempX : null;
-    const y = req.body.y ? req.body.y : tempY ? tempY : null;
+    const x = req.body.x
+        ? req.body.x
+        : tempX
+        ? tempX
+        : req.query.x
+        ? parseInt(req.query.x)
+        : null;
+    const y = req.body.y
+        ? req.body.y
+        : tempY
+        ? tempY
+        : req.query.y
+        ? parseInt(req.query.y)
+        : null;
 
     if (!x || !y)
         return res.status(400).json("Please add integer values for X and Y");
@@ -51,7 +64,7 @@ const postService = (req, res) => {
             : null;
 
     if (result) {
-        return res.status(200).json({
+        return res.status(201).json({
             slackUsername: "codeHashira",
             result: result,
             operation_type: operation,
