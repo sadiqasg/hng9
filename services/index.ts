@@ -1,7 +1,10 @@
-const postService = (req, res) => {
+import express, { Request, Response } from "express";
+
+export const postService = (req: Request, res: Response) => {
+    // return console.log(req.params);
     const operation_type = req.body.operation_type || req.params.operation_type;
 
-    const checkSubStr = (string, substing) => {
+    const checkSubStr = (string: string, substing: string) => {
         return string.indexOf(substing) !== -1 ? true : false;
     };
 
