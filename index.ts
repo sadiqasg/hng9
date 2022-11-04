@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 
 const app: Application = express();
-const port: number | string = process.env.PORT || 8000;
+const port: number | string = process.env.PORT || 3000;
 
 import { postService } from "./services";
 
