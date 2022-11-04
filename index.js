@@ -6,6 +6,7 @@ const { postService } = require("./services");
 
 app.use(cors({ credentials: true, origin: "*" }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     res.status(200).json({

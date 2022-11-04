@@ -1,5 +1,5 @@
 const postService = (req, res) => {
-    const operation_type = req.body.operation_type || req.query.operation_type;
+    const operation_type = req.body.operation_type || req.params.operation_type;
 
     const checkSubStr = (string, substing) => {
         return string.indexOf(substing) !== -1 ? true : false;
@@ -40,15 +40,15 @@ const postService = (req, res) => {
         ? req.body.x
         : tempX
         ? tempX
-        : req.query.x
-        ? parseInt(req.query.x)
+        : req.params.x
+        ? parseInt(req.params.x)
         : null;
     const y = req.body.y
         ? req.body.y
         : tempY
         ? tempY
-        : req.query.y
-        ? parseInt(req.query.y)
+        : req.params.y
+        ? parseInt(req.params.y)
         : null;
 
     if (!x || !y)
